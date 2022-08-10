@@ -1,0 +1,37 @@
+<h2 align="center"> <%= @bug.bug_title.capitalize %></h2>
+<div class="show">
+    <h6>Bug Description:</h6>
+    <p><%= @bug.description %></p>
+
+    <h6>Bug Type:</h6>
+    <p><%= @bug.bug_type %></p>
+
+    <h6>Bug Status:</h6>
+    <p><%= @bug.status %></p>
+
+    <h6>Bug Deadline:</h6>
+    <p><%= @bug.deadline %></p>
+    <%if @bug.image_url  %>
+        <div align="center">
+              <%= image_tag @bug.image_url , class: "image"%>
+        </div>
+    <%end%>
+    <br/>
+    <br/>
+    
+    <% if can? :update, Bug %>
+    <%= link_to "Edit this Bug", edit_bug_path(@bug), class: "btn btn-xs btn-warning" %>
+    <%end%>
+    <br/>
+    <br/>
+    <% if can? :destroy, Bug %>
+     <%= button_to "Delete this Bug", bug_path(@bug), method: :delete , class: "btn btn-xs btn-danger" %>
+    <%end%>
+    
+    <%= hidden_field_tag :project_id, params[:project_id] %>
+
+
+
+</div>
+
+

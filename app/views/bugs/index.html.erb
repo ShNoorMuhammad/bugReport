@@ -1,0 +1,15 @@
+<h1>Bugs</h1>
+<%@bugs.each do |bug|%> <% if bug.bug_title%>
+
+<div class="showProjects">
+ <h4> <%=link_to bug.bug_title.capitalize, bug_path(id: bug.id, project_id: @project.id) , {:controller => "bugs", :action => "show"} %>   </h4> 
+
+  <h6>Type</h6>
+  <p><%= bug.bug_type %></p>
+  <h6>Status</h6>
+  <p><%= bug.status%></p>
+  <h6>Project Id</h6>
+  <p><%= @project.id%></p>
+  <%= hidden_field_tag :project_id, params[:project_id] %>
+</div>
+<%end%> <%end%>

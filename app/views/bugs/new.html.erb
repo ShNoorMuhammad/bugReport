@@ -1,0 +1,58 @@
+<div class="container">
+<h1>New Bug</h1>
+<div class="col-md-12">
+<%= form_for(@bug, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+    <div class="control-label col-md-2">
+        <%= f.label :bug_title %>
+    </div>
+    <div class="col-md-8">
+        <%= f.text_field :bug_title, class: "form-control"%>
+    </div>
+    <br/>
+    <div class="control-label col-md-2">
+        <%= f.label :description %>
+    </div>
+    <div class="col-md-8">
+        <%= f.text_area :description, rows:8, class: "form-control" %>
+    </div>
+    <br/>
+
+    <div class="control-label col-md-2">
+        <%= f.label :deadline %>
+    </div>
+    <div class="col-md-8">
+        <%= f.date_field :deadline, class: "form-control"%>
+    </div>
+    <br/>
+    <div class="control-label col-md-2"><%= f.label :status %><br /></div>
+
+    <div class="col-md-8">
+      <%= f.select(:status, ["New"], {}, { :class=>
+      "form-select" }) %>
+    </div>
+
+    <br>
+  <div class="control-label col-md-2">
+    <%= f.label :bug_type ,"Type" %><br />
+    </div>
+    <div class="col-md-8">
+        <%= f.select(:bug_type, ['Bug','Feature'], {}, { :class => 'form-select' }) %>
+
+    </div>
+  </div>
+    <br>
+    
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <%= hidden_field_tag :project_id, params[:project_id] %>
+
+  <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit class: "btn btn-primary " %>
+        </div>
+      </div>
+<% end %>
+</div>
+<br>
+<br>

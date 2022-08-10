@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>Edit Bug</h1>
+  <div class="col-md-12">
+    <%= form_for(@bug, :html => { class: "form-horizontal", role: "form" }) do
+    |f| %>
+    <div class="control-label col-md-2"><%= f.label :bug_title %></div>
+    <div class="col-md-8">
+      <%= f.text_field :bug_title, class: "form-control", disabled: true %>
+    </div>
+    <br />
+    <div class="control-label col-md-2"><%= f.label :description %></div>
+    <div class="col-md-8">
+      <%= f.text_area :description, rows:8, class: "form-control"%>
+    </div>
+    <br />
+
+    <div class="control-label col-md-2"><%= f.label :deadline %></div>
+    <div class="col-md-8">
+      <%= f.date_field :deadline, class: "form-control"%>
+    </div>
+    <br />
+
+    <div class="control-label col-md-2">
+      <%= f.label :bug_type , "Type" %><br />
+    </div>
+    <div class="col-md-8">
+      <%= f.select(:bug_type, ['Bug','Feature'], {}, { :class => 'form-select',:disabled => true}) %>
+    </div>
+  </div>
+  <br />
+
+  <div class="control-label col-md-2"><%= f.label :status %><br /></div>
+
+  <% if @bug.bug_type==="Bug" %>
+    <div class="col-md-8">
+      <%= f.select(:status, ["Started", "Resolved" ], {}, { :class=> "form-select" }) %>
+    </div>
+  <% else %>
+    <div class="col-md-8">
+      <%= f.select(:status, ["Started", "Complete" ], {}, { :class=> "form-select" }) %>
+    </div>
+  <% end %>
+
+  <br />
+  <p>
+    <%= f.file_field :image %>
+  </p>
+
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit class: "btn btn-primary " %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<br />
+<br />
+
+
+
+<!-- <div class="container">
+  <h1>Edit Bug</h1>
+  <div >
+    <%= form_for(@bug, :html => { }) do
+    |f| %>
+    <div ><%= f.label :bug_title %></div>
+    <div class="col-md-8">
+      <%= f.text_field :bug_title %>
+    </div>
+    <br />
+    <div ><%= f.label :description %></div>
+    <div>
+      <%= f.text_area :description, rows:8%>
+    </div>
+    <br />
+
+    <div ><%= f.label :deadline %></div>
+    <div >
+      <%= f.date_field :deadline%>
+    </div>
+    <br />
+
+    <div >
+      <%= f.label :bug_type , "Type" %>
+      <br />
+    </div>
+    <div class="col-md-8">
+      <%= f.select(:bug_type, ['Bug','Feature'], {}, { }) %>
+    </div>
+  </div>
+  <br />
+
+  <div ><%= f.label :status %><br /></div>
+
+  <% if @bug.bug_type==="Bug" %>
+    <div >
+      <%= f.select(:status, ["Started", "Resolved" ], {}, {  }) %>
+    </div>
+  <% else %>
+    <div >
+      <%= f.select(:status, ["Started", "Complete" ], {}, {  }) %>
+    </div>
+  <% end %>
+
+  <br />
+
+  <div >
+    <div >
+      <%= f.submit %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<br />
+<br /> -->

@@ -1,0 +1,38 @@
+<h1 align="center"> <%= @project.name.capitalize %></h1>
+
+<div class="show">
+  
+  <% if @dev %>
+
+    <h5>Developer</h5>
+     <ul>
+        <% @dev.each do |d| %>
+        <li>
+            <%= d.name %>
+        </li>
+    <% end %>
+    </ul>
+    <% end %>
+  <% if @dev %>
+
+    <h5>Manager</h5>
+     <ul>
+        <% @qa.each do |m| %>
+        <li>
+            <%= m.name %>
+        </li>
+    <% end %>
+    </ul>
+    <% end %>
+    <% if can? :update, Project %>
+        <%= link_to "Edit this Project", edit_project_path(@project), class: "btn btn-xs btn-warning" %>
+        <%= button_to "Delete this Project", project_path(@project), method: :delete , class: "btn btn-xs btn-danger" %>
+     <%end%>
+     <% if can? :create, Bug %>   
+          <%=link_to 'Create a new bug', {:controller => "bugs", :action => "new", :project_id => @project.id } ,  class: "btn btn-xs btn-primary"%>    
+     <%end%>
+     <% if can? :read, Bug %>   
+          <%=link_to 'Show All Bugs of the project', {:controller => "bugs", :action => "index", :project_id => @project.id } ,  class: "btn btn-xs btn-primary"%>    
+     <%end%>
+
+</div>

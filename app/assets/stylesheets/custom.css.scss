@@ -1,0 +1,52 @@
+.show{
+    background:rgb(179, 179, 179);
+    color: black;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 2px solid black;
+    padding: 1%;
+    margin-bottom: 100px;
+
+}
+.showProjects{
+    background:rgb(179, 179, 179);
+    color: black;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px ;
+    padding: 2%;
+    margin-bottom: 30px;
+
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+//   color: #069;
+//   text-decoration: underline;
+  cursor: pointer;
+}
+.nav-link{
+    color: white;
+    margin-left: 5px;
+}
+.navbar-brand
+{
+    color:white
+}
+.image
+{
+    border: 2px solid black;
+    padding: 5px;
+    align-items: center;
+}

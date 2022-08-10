@@ -1,0 +1,15 @@
+  
+  
+  <h1>projects</h1>
+
+
+  <% @projects.each do |project|%> <% if project.name%>
+
+  <div class="showProjects">
+    <h4>
+      <%= link_to project.name.capitalize, project_path(project) , class: "link"
+      %>
+    </h4>
+  </div>
+  <%end%> <%end%>
+
